@@ -8,7 +8,7 @@ RewriteRule ^ /%1 [L,NC,R=301]
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{DOCUMENT_ROOT}/src/pages/$1\.php -f [NC]
-RewriteRule ^([^.]+?)/?$ assets/php/$1.php [L]
+RewriteRule ^([^.]+?)/?$ $1.php [L]
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{DOCUMENT_ROOT}/$1\.php -f [NC]
