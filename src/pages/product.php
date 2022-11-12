@@ -526,7 +526,7 @@ try {
                             <button type="submit" class="btn btn-secondary" value='1' name='addCartQuant'>Add to Cart</button>
                         </form>
                     </div>
-                    <div class="review-status"  <?php echo $productDescription;?>>
+                    <div class="review-status"  <?php echo $displayNone;?>>
                         <?php
                             echo (!empty($messageVoteDisplay)) ? $messageVoteDisplay : '';
                             echo (!empty($messageBuyAgainDisplay)) ? $messageBuyAgainDisplay : '';  
