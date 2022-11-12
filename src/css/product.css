@@ -8,7 +8,6 @@ main {
 }
 
 .product {
-  min-height: 100%;
   width: 100%;
   background-color: white;
   display: flex;
@@ -19,14 +18,13 @@ main {
 
 .product-section {
   width: 100%;
-  height: 60vh;
   display: flex;
 }
 
 .product-section-image {
   padding: 20px;
-  width: 30%;
-  height: 100%;
+  width:30%;
+  height:auto;
 }
 
 .product-section-description {
@@ -39,8 +37,9 @@ main {
 }
 
 .product-section-description-info {
-  height: 280px;
+  display:flex;
   overflow:visible;
+  font-size:medium;
 }
 
 .product-description{
@@ -54,14 +53,48 @@ main {
 
 .actions{
   display: flex;
+  margin-bottom:10px;
 }
 
 .actions form{
   margin-right: 10px;
 }
 
+#line{
+  width:90%;
+  margin-left: auto;
+  margin-right: auto;
+  align-self: center;
+  border:2px solid rgba(0, 0, 0, 1);
+}
+
+#line2{
+  width:90%;
+  margin-left: auto;
+  margin-right: auto;
+  align-self: center;
+  border:2px solid rgba(0, 0, 0, 1);
+}
+
+.review-status{
+  background-color:antiquewhite;
+  padding:8px;
+  border:2px solid lightslategrey;
+  border-radius: 5px;
+  display:flex;
+  flex-direction: column;
+  width:fit-content;
+}
+
+.review-status p{
+  margin:2px;
+}
+
 .similar-product{
-  padding:10px 0px;
+  display:flex;
+  flex-direction: column;
+  margin:10px 0px 0px;
+  width:100%;
 }
 
 .product-row {
@@ -128,7 +161,7 @@ main {
   display:block;
   background-color: antiquewhite;
   border:2px solid black;
-  width:30%;
+  width:35%;
   border-radius: 7px;
 }
 
@@ -140,6 +173,7 @@ main {
 
 .review-panel form{
   text-align: center;
+  padding:0 5%;
 }
 
 .panel-head{
