@@ -5,11 +5,3 @@ RewriteBase /
 
 RewriteCond %{THE_REQUEST} /src/pages/([^.]+)\.php [NC]
 RewriteRule ^ /%1 [L,NC,R=301]
-
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{DOCUMENT_ROOT}/src/pages/$1\.php -f [NC]
-RewriteRule ^([^.]+?)/?$ $1.php [L]
-
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{DOCUMENT_ROOT}/$1\.php -f [NC]
-RewriteRule ^([^.]+?)/?$ $1.php [NC,L]
