@@ -496,7 +496,6 @@ try {
                                     break;
                                 default: 
                                     echo "<p>$buyAgainNum people would buy this product again</p>";
-                
                             }  
                         ?>
                     </div>
@@ -510,7 +509,7 @@ try {
                         <h4>Dimension: <?php echo $productDimension;?></h4>
                     </div>
                     <div class="product-section-description-stock">
-                        <h4>Availibility: <?php echo ($productQuantity > 0) ? $productQuantity : 'Out of Stock'; ?></h4>
+                        <h4>Availability: <?php echo ($productQuantity > 0) ? $productQuantity : 'Out of Stock'; ?></h4>
                     </div>
                     <div class="product-section-description-info">
                         <p><strong>About this item:</strong> <?php echo $productDescription;?></p>
@@ -527,7 +526,7 @@ try {
                             <button type="submit" class="btn btn-secondary" value='1' name='addCartQuant'>Add to Cart</button>
                         </form>
                     </div>
-                    <div class="review-status">
+                    <div class="review-status"  <?php echo $productDescription;?>>
                         <?php
                             echo (!empty($messageVoteDisplay)) ? $messageVoteDisplay : '';
                             echo (!empty($messageBuyAgainDisplay)) ? $messageBuyAgainDisplay : '';  
