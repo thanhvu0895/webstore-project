@@ -457,11 +457,6 @@ try {
     <div id="root">
       <?php include("partials/header.php") ?>
       <?php include("partials/menu.php") ?>
-      <!-- IF THERE IS AN ERROR for the user or password information, then display this -->
-        <?php 
-            echo (!empty($newVoteCasted)) ? $newVoteCasted : '';
-            echo (!empty($messageVoteCasted)) ?  $messageVoteCasted : '';
-        ?>
         <!-- END display error -->
         <!-- IF THERE IS AN ERROR for the user or password information, then display this --> 
         <?php 
