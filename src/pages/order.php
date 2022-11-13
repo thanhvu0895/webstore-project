@@ -202,50 +202,50 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/wishlist.css">
+  <link rel="stylesheet" href="../css/order.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
   <title>Wishlist</title>
 </head>
 
 <body>
-  <div id="root">
-    <?php include("partials/header.php") ?>
-    <?php include("partials/menu.php") ?>
+  <?php include("partials/header.php") ?>
 
-    <main>
-      <?php include("../pages/partials/sidebar.php") ?>
-      <div class="wishlist">
-        <h2>My Order</h2>
-        <?php 
-          if (!empty($productNames)) {
-            
-            for ($i = 0; $i < count($productNames); $i++) { 
+  <div class="wishlist-container">
+    <?php include("../pages/partials/sidebar.php") ?>
+    <div class="product-container">
+      <?php
+      if (!empty($productNames)) {
+        echo "
+          <div style='display: flex; width: 100%; justify-content: space-between'>
+              <h2>My Order</h2>
+          </div>";
+      
+            for ($i = 0; $i < count($productNames); $i++) {
               $productRateMess = ($voteCounts[$i] > 1) ? $voteCounts[$i] . ' rates' :  $voteCounts[$i] . ' rate';
-              echo "
-                <div class='wishlist-item'>
-                  <img class='item-image' src='$productImagePaths[$i]' width=500 height=500>
-                  <div class='item-details'>
-                    <a href='product.php?id=$productIds[$i]'><p class='product'>$productNames[$i]</p>
+          echo "
+            <div class='wishlist-item'>
+                <img class='item-image' src='$productImagePaths[$i]' height=250 width=250>
+                <div class='item-details'>
+                    <a href='product.php?id=$productIds[$i]'><p class='product'>$productNames[$i]</p></a>
                     <p class='brand'>$productBrands[$i]</p>
                     <div class='catalog-item-description-star'>
                       <span>
-                      $ratingDisplays[$i]
-                      <p>$productAvgRatings[$i]/5</p>
-                      <p>($productRateMess)</p>
+                        $ratingDisplays[$i]
+                        <p>$productAvgRatings[$i]/5</p>
+                        <p>($productRateMess)</p>
                       </span>
                     </div>
                     <p class='price'>&curren; $productPrices[$i]</p>
-                  </div>
-              </div>";
-            }
+                </div>
+            </div>";
+          }
         } else {
             echo "<h3>You have not purchased anything yet</h3>";
-          }     
+          }
         ?>
-      </div> 
-    </main>
-    <?php include("partials/footer.php") ?>
-  </div>
+      </div>
+     </div>
+  <?php include("partials/footer.php") ?>
 </body>
 
 </html>

@@ -1,12 +1,4 @@
 <style>
-  .catalog {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    padding: 100px;
-    width: 100%;
-  }
-
   .sidebar ul {
     min-width: 150px;
     display: flex;
@@ -30,6 +22,12 @@
 
   .catalog p {
     margin: 0px;
+  }
+
+  @media screen and (max-width: 720px) {
+    .sidebar ul {
+      min-width: 250px;
+    }
   }
 </style>
 

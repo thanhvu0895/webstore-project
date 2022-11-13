@@ -2,13 +2,12 @@
 session_start();
 require_once("connection.php");
 
-/**
+/*
  *  IMPLEMENT SHOWING PRODUCTS ON HOME PAGE
- *  Thanh Vu 11/03/2022
+ *  FUNCTIONS IMPLEMENTED by Thanh Vu
  */
 
 try {
-
   $stmt = $conn->query("SELECT * FROM Product");
 
   // Get id product name, brand, price, image_path from product Id 
@@ -23,11 +22,9 @@ try {
   header("Location: error.php?error=Connection failed:" . $e->getMessage());
 }
 
-
 /**
  *  IMPLEMENT SHOWING BY CATEGORY
  */
-
 
 try {
   if (!empty($_GET['category'])) {
@@ -115,6 +112,7 @@ try {
 /**
  *  IMPLEMENT SEARCH BAR
  */
+ 
 $search = "";
 try {
   if (!empty($_POST['search'])) {
@@ -324,9 +322,6 @@ try {
   header("Location: error.php?error=Connection failed:" . $e->getMessage());
 }
 
-
-
-
 // Set display to none if user is not logged in
 $displayNone = (!isset($_SESSION["email"]))  ? "style='display:none'" : '';
 // Close connection to save resources
@@ -363,7 +358,7 @@ $conn = null;
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../css/landing.css" />
+  <link rel="stylesheet" href="../css/index.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
   <title>Webstore</title>
@@ -376,28 +371,35 @@ $conn = null;
 
     <div class="catalog">
       <!-- slider begins -->
-      <!-- <div class="form-price-range-filter">
-                <form method="post" action="">
-                    <div>
-                        <input type="" id="min" name="min_price"
-                            value="<?php echo $min; ?>">
-                        <div id="slider-range"></div>
-                        <input type="" id="max" name="max_price"
-                            value="<?php echo $max; ?>">
-                    </div>
-                    <div>
-                    <select name="stars" id="stars" value>
-                      <option value="0" selected disabled hidden>Select a Rating</option>
-                      <option value=4>4 Stars & Up</option>
-                      <option value=3>3 Stars & Up</option>
-                      <option value=2>2 Stars & Up</option>
-                      <option value=1>1 Star & Up</option>                  
-                      <option value=0>Include No Rating</option>                  
-                    </select>             
-                    <button style='width: 150px' type='submit' class='btn btn-outline-dark'> Submit </button>
-                    </div>
-                </form>
-            </div> -->
+      <div>
+        <form method="post" action="">
+          <div style="display: flex; flex-direction: column;">
+            <div style="display: flex;  width:200px; justify-content: space-between; align-items: center;">
+              <div style="display: flex">
+                <p>Min</p>
+                <input style="width: 50px; height: 25px; border-radius: 8px; padding-left: 10px" type="" id="min" class="filter-amount" name="min_price" value="<?php echo $min; ?>">
+              </div>
+              <div style="display: flex">
+                <p>Max</p>
+                <input style="width: 50px; height: 25px; border-radius: 8px; padding-left: 10px" type="" id="max" name="max_price" value="<?php echo $max; ?>">
+              </div>
+
+            </div>
+            <div id="slider-range" style="width: 180px"></div>
+            <div style="margin-top: 10px;">
+              <select name="stars" id="stars" value>
+                <option value="0" selected disabled hidden>Select a Rating</option>
+                <option value=4>4 Stars & Up</option>
+                <option value=3>3 Stars & Up</option>
+                <option value=2>2 Stars & Up</option>
+                <option value=1>1 Star & Up</option>
+                <option value=0>Include No Rating</option>
+              </select>
+              <button style='width: 80px' type='submit'> Submit </button>
+            </div>
+          </div>
+        </form>
+      </div>
       <!-- slider ends -->
 
       <div class="container px-4 px-lg-5 pt-5">

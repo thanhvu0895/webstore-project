@@ -73,6 +73,10 @@ p {
   font-size: 8px;
 }
 
+.filter-amount {
+  background-color: red;
+}
+
 @media screen and (max-width: 960px) {
   .header-navigation p {
     font-size: 14px;
