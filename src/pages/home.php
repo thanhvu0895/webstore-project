@@ -143,6 +143,7 @@ $conn = null;
     <div class="account-container">
         <div class="sidebar-container">
             <?php include("partials/sidebar.php") ?>
+            <a href="logout.php"><h3>Log out<h3></a>
         </div>
         <div class="form-container">
             <div>
@@ -166,7 +167,7 @@ $conn = null;
                     <button type="submit" class="btn btn-secondary" style="margin-top: 10px">Submit</button>
                 </form>
                 <form method="post" action="">
-                    <p style="margin-top: 30px">Delete account</p>
+                    <p style="margin-top: 30px">Delete account:</p>
                     <button type="submit" class="btn btn-secondary" name="deleteAcc" style="margin-top: 10px">Delete</button>
                 </form>
             </div>

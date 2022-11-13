@@ -107,7 +107,7 @@ $displayNone = (!isset($_SESSION["email"]))  ? "style='display:none'" : '';
         .header-navigation {
             width: 150px;
             display: flex;
-            justify-content: flex-start;
+            justify-content: flex-end;
         }
 
         .header-navigation p {
@@ -143,11 +143,18 @@ $displayNone = (!isset($_SESSION["email"]))  ? "style='display:none'" : '';
         </div>
         <div class="header-navigation">
             <div class="header-navigation-account">
-                <a href="home.php">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
-                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                <?php echo (!isset($_SESSION["email"])) ? "
+                <a href='signin.php'>
+                    <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' class='bi bi-person-fill' viewBox='0 0 16 16'>
+                        <path d='M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z' />
                     </svg>
-                </a>
+                </a>" : "
+                <a href='home.php'>
+                    <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' class='bi bi-person-fill' viewBox='0 0 16 16'>
+                        <path d='M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z' />
+                    </svg>
+                </a>"; ?>
+
                 <?php
                 echo (!isset($_SESSION["email"])) ? "<p><a href='signin.php'>Sign In</a></p>" : "<p><a href='home.php'>Account</a></p>";
                 ?>

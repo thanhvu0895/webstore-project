@@ -246,7 +246,6 @@
             $result = $stmt->fetch();
             $buyAgainNum = $result['BuyAgain'] ?? '0';
         }
-
         // Case 1: if vote is selected but user is not signed in
         if (!empty($_GET['points']) && !isset($_SESSION["email"])) { 
             header("Location: signin.php");

@@ -339,97 +339,105 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/cart.css">
+  <link rel="stylesheet" href="../css/cart-page.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
   <title>Cart</title>
 </head>
 
 <body>
-  <div id="root">
-    <?php include("partials/header.php") ?>
-    <?php include("partials/menu.php") ?>
 
-    <main>
+  <?php include("partials/header.php") ?>
+  <div class="cart-container">
+    <div class="sidebar-container">
       <?php include("../pages/partials/sidebar.php") ?>
-      <div class="cart">
-        <h2>My Cart</h2>
-        <h3><strong><p>Remaining Balance: </strong>&curren;<?php echo $userBalance ?></p></h3> 
-        <?php
-          $purchaseMessage = (!empty($purchaseMessage))  ? $purchaseMessage : '';
-          echo $purchaseMessage;        
-          
-          if (!empty($productNames)) {
-        
-            for ($i = 0; $i < count($productNames); $i++) { 
-              
-              $productRateMess = ($voteCounts[$i] > 1) ? $voteCounts[$i] . ' rates' :  $voteCounts[$i] . ' rate';
-              
-              if ($productUnits[$i] >= 1) {
-                $cartMessage = "<div class='alert alert-warning alert-dismissable'>
+    </div>
+
+    <div class="product-container">
+
+      <?php
+      if (!empty($productNames)) {
+        echo "
+          <div style='display: flex; width: 100%; justify-content: space-between'>
+              <h2>My Cart</h2>
+              <h3>
+                Balance: &curren; $userBalance
+              </h3>
+          </div>";
+      }
+      ?>
+
+      <?php
+      $purchaseMessage = (!empty($purchaseMessage))  ? $purchaseMessage : '';
+      echo $purchaseMessage;
+
+      if (!empty($productNames)) {
+
+        for ($i = 0; $i < count($productNames); $i++) {
+          $productRateMess = ($voteCounts[$i] > 1) ? $voteCounts[$i] . ' rates' :  $voteCounts[$i] . ' rate';
+
+          if ($productUnits[$i] >= 1) {
+            $cartMessage = "<div class='alert alert-warning alert-dismissable'>
                 <a href='cart.php' class='close' data-dismiss='alert' aria-label='close'>&times;</a> 
                 In stock 
               </div>";
-              } else {
-                $cartMessage = "<div class='alert alert-warning alert-dismissable'>
+          } else {
+            $cartMessage = "<div class='alert alert-warning alert-dismissable'>
                 <a href='cart.php' class='close' data-dismiss='alert' aria-label='close'>&times;</a> 
                 The product is out of stock
               </div>";
-              }
-              $productPurchasedPrice = $productPurchasedPrice ?? 0;
-              if ($productPurchasedPrice <= $userBalance) {
-                $cartMessage = "<div class='alert alert-warning alert-dismissable'>
+          }
+          $productPurchasedPrice = $productPurchasedPrice ?? 0;
+          if ($productPurchasedPrice <= $userBalance) {
+            $cartMessage = "<div class='alert alert-warning alert-dismissable'>
                 <a href='cart.php' class='close' data-dismiss='alert' aria-label='close'>&times;</a> 
                 Enough Balance
               </div>";
-              } else {
-                 $cartMessage = "<div class='alert alert-warning alert-dismissable'>
+          } else {
+            $cartMessage = "<div class='alert alert-warning alert-dismissable'>
                 <a href='cart.php' class='close' data-dismiss='alert' aria-label='close'>&times;</a> 
                 Not enough Balance
               </div>";
-              }
+          }
+
+          $productUnitsMess = ($productUnits[$i] == 0) ? "<p class='units-in-storage'>Out of stock</p>" : "<p class='units-in-storage'>$productUnits[$i] left in storage</p>";
+
+          echo "
+            <div class='cart-item'>
+              <img class='item-image' src='$productImagePaths[$i]' width=250 height=250>
+              <div class='item-details'>
+                <a href='product.php?id=$productIds[$i]'><p class='product'>$productNames[$i]</p></a>
+                <p class='brand'>$productBrands[$i]</p>
+                <div class='catalog-item-description-star'>
+                    <span>
+                      $ratingDisplays[$i]
+                      <p>$productAvgRatings[$i]/5</p>
+                      <p>($productRateMess)</p>
+                    </span>
+                </div>
+                <p class='price'>&curren; $productPrices[$i]</p>
+                $productUnitsMess
+                <form action='cart.php' method='get'>
+                  <input type='hidden' name='unit' value='$productUnits[$i]'>
+                  <input type='hidden' name='id' value='$productIds[$i]'>
+                  <button type='submit' value='$productPrices[$i]' name='productPurchasedPrice' class='btn btn-outline-dark'><span class='glyphicon glyphicon-ok'></span>Buy</button>               
+                </form>
+              </div>
               
-              $productUnitsMess = ($productUnits[$i] == 0) ? "<p class='units-in-storage'>Out of stock</p>" : "<p class='units-in-storage'>$productUnits[$i] left in storage</p>";
-              
-              echo "
-                    <div class='cart-item'>
-                      <img class='item-image' src='$productImagePaths[$i]' width=500 height=500>
-                      <div class='item-details'>
-                        <a href='product.php?id=$productIds[$i]'><p class='product'>$productNames[$i]</p>
-                        <p class='brand'>$productBrands[$i]</p>
-                        <div class='catalog-item-description-star'>
-                            <span>
-                              $ratingDisplays[$i]
-                              <p>$productAvgRatings[$i]/5</p>
-                              <p>($productRateMess)</p>
-                            </span>
-                        </div>
-                        <p class='price'>&curren; $productPrices[$i]</p>
-                        $productUnitsMess
-                        </div>
-                      
-                      <div class='form-group text-center'>
-                        <form action='cart.php' method='get'>
-                          <button type='submit' value='$productIds[$i]' name='productRemoveId' class='btn btn-info'><span class='glyphicon glyphicon-ok'></span> Remove From cart</button>
-                        </form>
-                      </div>
-                        <div class='form-group text-center'>
-                          <form action='cart.php' method='get'>
-                          <!-- Hidden input contains value of query param id=? so we can append further query param -->
-                            <input type='hidden' name='unit' value='$productUnits[$i]'>
-                            <input type='hidden' name='id' value='$productIds[$i]'>
-                            <button type='submit' value='$productPrices[$i]' name='productPurchasedPrice' class='btn btn-info'><span class='glyphicon glyphicon-ok'></span> Purchase Item</button>               
-                          </form>
-                          </div>   
-                    </div>";
-            }
-        } else {
-            echo "<h3>No cart items to display</h3>";
-          }     
-        ?>
-      </div> 
-    </main>
-    <?php include("partials/footer.php") ?>
+              <div class='form-group text-center'>
+                <form action='cart.php' method='get'>
+                  <button class = 'delete' type='submit' value='$productIds[$i]' name='productRemoveId' class='btn btn-outline-dark'><span class='glyphicon glyphicon-ok'></span> X </button>
+                </form>
+              </div>
+            </div>";
+        }
+      } else {
+        echo "<h3>No cart items to display</h3>";
+      }
+      ?>
+    </div>
   </div>
+  <?php include("partials/footer.php") ?>
 
 </body>
+
 </html>

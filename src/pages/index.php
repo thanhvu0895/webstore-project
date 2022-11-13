@@ -371,7 +371,7 @@ $conn = null;
 
     <div class="catalog">
       <!-- slider begins -->
-      <div>
+    <!--  <div>
         <form method="post" action="">
           <div style="display: flex; flex-direction: column;">
             <div style="display: flex;  width:200px; justify-content: space-between; align-items: center;">
@@ -399,7 +399,7 @@ $conn = null;
             </div>
           </div>
         </form>
-      </div>
+      </div> -->
       <!-- slider ends -->
 
       <div class="container px-4 px-lg-5 pt-5">

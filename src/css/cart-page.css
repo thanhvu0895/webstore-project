@@ -8,7 +8,7 @@ a {
   color: black;
 }
 
-.wishlist-container {
+.cart-container {
   min-height: 70vh;
   width: 100%;
   background-color: rgb(253, 240, 213);
@@ -20,7 +20,7 @@ a {
   margin-left: 40px;
 }
 
-.wishlist-item {
+.cart-item {
   display: flex;
   background-color: white;
   border: 1px solid #909090;
@@ -64,11 +64,11 @@ a {
   font-size: 20px;
 }
 
-.wishlist-item .item-image {
+.cart-item .item-image {
   align-self: flex-start;
 }
 
-.wishlist-item .actions {
+.cart-item .actions {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -76,7 +76,7 @@ a {
   margin: 10px;
 }
 
-.wishlist-item .actions a {
+.cart-item .actions a {
   margin-bottom: 10px;
 }
 
@@ -95,7 +95,7 @@ a {
   font-size: 15px;
 }
 
-.wishlist-item .form-group button {
+.cart-item .form-group button {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -103,7 +103,7 @@ a {
 }
 
 @media screen and (max-width: 720px) {
-  .wishlist-container {
+  .cart-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -117,17 +117,17 @@ a {
     margin-left: 0px;
   }
 
-  .wishlist-item {
+  .cart-item {
     width: 330px;
     margin-top: 10px;
   }
 
-  .wishlist-item img {
+  .cart-item img {
     height: 150px;
     width: 150px;
   }
 
-  .wishlist-item .delete {
+  .cart-item .delete {
     height: 20px;
     width: 20px;
   }
@@ -145,7 +145,7 @@ a {
     font-size: 12px;
   }
 
-  .wishlist-item .form-group button {
+  .cart-item .form-group button {
     width: 30px;
     height: 30px;
     border-radius: 50%;

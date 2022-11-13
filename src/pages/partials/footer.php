@@ -33,7 +33,7 @@
     }
 
     .footer-social {
-        width: 100%;
+        width: 70%;
         display: flex;
         flex-direction: column;
         align-items: flex-end;
@@ -85,23 +85,7 @@
         echo (isset($_SESSION["email"])) ? "<a href=refill-webcoins.php> <p>Refill Webcoins</p></a>" : "";
         ?>
     </div>
-    <div class="footer-social">
-        <div class="footer-social-logos">
-            <div class="footer-social-logo-item">
-                <img src="../images/fb.png" alt="fb-icon" />
-            </div>
-            <div class="footer-social-logo-item">
-                <img src="../images/insta-logo.png" alt="insta-icon" />
-            </div>
-            <div class="footer-social-logo-item">
-                <img src="../images/youtube.png" alt="youtube" />
-            </div>
-            <div class="footer-social-logo-item">
-                <img src="../images/twitter.png" alt="twitter" />
-            </div>
-        </div>
-
-    </div>
+    <div class="footer-social"></div>
     <div class="footer-social-copyright">
         <p>© 2022 Web development Group 2</p>
     </div>
