@@ -596,20 +596,18 @@
                 </div>
                 <div class="product-section-description-rating">
                     <h4>Rating: <?php echo $ratingDisplay; ?> <?php echo $productAvgRating; ?>/5 [<?php echo $voteCount; ?> Reviews] <a style="font-size:medium; text-decoration:underline; margin-left:5px;" href="#review" ONCLICK="ShowAndHide()">Leave a review</a></h4>
-                    <div class="review-status">
+                    <div class="review-status" <?php echo $displayNone ?>>
                         <?php
-                            if (isset($_SESSION['email'])){
-                                switch ($buyAgainNum) {
-                                    case 0:
-                                        echo '<p>No one answered whether they would buy this product again</p>';
-                                        break;
-                                    case 1:
-                                        echo '<p>1 person would buy this product again</p>';
-                                        break;
-                                    default:
-                                        echo "<p>$buyAgainNum people would buy this product again</p>";
-                                }
-                            }                            
+                            switch ($buyAgainNum) {
+                                case 0:
+                                    echo '<p>No one answered whether they would buy this product again</p>';
+                                    break;
+                                case 1:
+                                    echo '<p>1 person would buy this product again</p>';
+                                    break;
+                                default:
+                                    echo "<p>$buyAgainNum people would buy this product again</p>";
+                            }
                         ?>
                     </div>
                 </div>
