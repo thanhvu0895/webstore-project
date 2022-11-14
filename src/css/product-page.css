@@ -172,6 +172,14 @@
   display: flex;
 }
 
+#review{
+  margin-bottom: 10px;
+}
+
+#review-button{
+  margin-bottom:10px;
+}
+
 @media screen and (max-width: 960px) {
   .product-section {
     flex-direction: column;
@@ -214,5 +222,9 @@
     margin-right: 0px;
     height: 210px;
     width: 140px;
+  }
+
+  .review-brick{
+    width:100%;
   }
 }
