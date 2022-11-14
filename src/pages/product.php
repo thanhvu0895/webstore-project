@@ -603,7 +603,7 @@
                                     echo '<p>No one answered whether they would buy this product again</p>';
                                     break;
                                 case 1:
-                                    echo '<p>1 person said he would buy this product again</p>';
+                                    echo '<p>1 person would buy this product again</p>';
                                     break;
                                 default:
                                     echo "<p>$buyAgainNum people would buy this product again</p>";
@@ -663,7 +663,7 @@
                         $productRateMess = ($voteCounts[$i] > 1) ? $voteCounts[$i] . ' rates' :  $voteCounts[$i] . ' rate';
                         echo "
                         <div class='col mb-5'>
-                            <div class='catalog-item'>  
+                            <div class='catalog-item'>
                                 <img src='$productImagePaths[$i]' alt='Item' width='130' height='130' />
                                 <div class='catalog-item-description'>	
                                     <div class='catalog-item-description-name'>	
