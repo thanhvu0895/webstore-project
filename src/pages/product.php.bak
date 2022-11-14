@@ -490,7 +490,6 @@
                 </div>
                 <div class="product-section-description-rating">
                     <h4>Rating: <?php echo $productAvgRating; ?>/5 <a style="font-size:medium; text-decoration:underline; margin-left:5px;" href="#review" ONCLICK="ShowAndHide()">Leave a review</a></h4>
-                    <div class="review-status">
                         <?php
                             switch ($buyAgainNum) {
                                 case 0:
@@ -503,7 +502,6 @@
                                     echo "<p>$buyAgainNum people would buy this product again</p>";
                             }
                         ?>
-                    </div>
                 </div>
                 <div class="product-section-description-price">
                     <h4>Price: &curren;<?php echo $productPrice; ?></h4>
