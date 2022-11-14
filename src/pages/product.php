@@ -264,7 +264,7 @@
             // IF VOTE HAS BEEN CASTED
             if ($stmt->rowCount() > 0) {
                 $messageVoteCasted = "<div class='alert alert-warning alert-dismissable'>
-                <a href='product.php' class='close' data-dismiss='alert' aria-label='close'>&times;</a> 
+                <a href='product.php?id=$productId' class='close' data-dismiss='alert' aria-label='close'>&times;</a> 
                 <strong>Error: </strong> You have already rated $productName!
                     </div>";
             } else { // VOTE HAS NOT BEEN CASTED
@@ -332,7 +332,7 @@
 
             } else {
                 $messageRateFirst = "<div class='alert alert-warning alert-dismissable'>
-                <a href='product.php' class='close' data-dismiss='alert' aria-label='close'>&times;</a> 
+                <a href='product.php?id=$productId' class='close' data-dismiss='alert' aria-label='close'>&times;</a> 
                 <strong>Error: </strong> You have to rate $productName first!
                     </div>";
             }
@@ -377,7 +377,7 @@
             if ($stmt->rowCount() > 0) {
                 // GENERATE HTML NOTIFYING USER ABOUT EXISTING PRODUCT
                 $messageProductExisted = "<div class='alert alert-warning alert-dismissable'>
-                                            <a href='product.php' class='close' data-dismiss='alert' aria-label='close'>&times;</a> 
+                                            <a href='product.php?id=$productId' class='close' data-dismiss='alert' aria-label='close'>&times;</a> 
                                             <strong>Error: </strong> Product already exists in wishlist. Go to <a href='wishlist.php'>Wishlist.</a>
                                          </div>";
             } else {
@@ -391,7 +391,7 @@
                 
                 //  GENERATE HTML NOTIFYING USER THAT PRODUCT HAS BEEN ADDED TO WISHLIST
                 $messageProductExisted = "<div class='alert alert-warning alert-dismissable'>
-                                            <a href='product.php' class='close' data-dismiss='alert' aria-label='close'>&times;</a> 
+                                            <a href='product.php?id=$productId' class='close' data-dismiss='alert' aria-label='close'>&times;</a> 
                                             Added this product to wishlist!, Go to <a href='wishlist.php'>Wishlist.</a>
                                           </div>";
             }      
@@ -421,7 +421,7 @@
             if ($stmt->rowCount() > 0) {
                 // GENERATE HTML NOTIFYING USER ABOUT EXISTING PRODUCT
                 $messageProductExisted = "<div class='alert alert-warning alert-dismissable'>
-                                            <a href='product.php' class='close' data-dismiss='alert' aria-label='close'>&times;</a> 
+                                            <a href='product.php?id=$productId' class='close' data-dismiss='alert' aria-label='close'>&times;</a> 
                                             <strong>Error: </strong> Product already exists in Cart. Go to <a href='cart.php'>Cart.</a>
                                          </div>";
             } else {
@@ -434,7 +434,7 @@
                 $conn->commit(); 
                 //  GENERATE HTML NOTIFYING USER THAT PRODUCT HAS BEEN ADDED TO cart
                 $messageProductExisted = "<div class='alert alert-warning alert-dismissable'>
-                                            <a href='product.php' class='close' data-dismiss='alert' aria-label='close'>&times;</a> 
+                                            <a href='product.php?id=$productId' class='close' data-dismiss='alert' aria-label='close'>&times;</a> 
                                             Added this product to cart!, Go to <a href='cart.php'>cart.</a>
                                           </div>";
             }      
