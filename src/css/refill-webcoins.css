@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.refill-container {
+  min-height: 70vh;
+  width: 100%;
+  background-color: rgb(253, 240, 213);
+  display: flex;
+  padding: 40px;
+}
+
+.form-container {
+  margin-left: 40px;
+}
+
+@media screen and (max-width: 720px) {
+  .refill-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .form-container {
+    width: 250px;
+  }
+}
