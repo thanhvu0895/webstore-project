@@ -100,10 +100,32 @@ try {
 try {
   if (isset($_POST['deleteAcc'])) {
     $conn->beginTransaction(); 
-    $sql = ("DELETE FROM User WHERE id = ?");
+    
+    $sql = ("DELETE FROM ProductFavorite WHERE user_id = ?");
     $statement = $conn->prepare($sql);
     $statement->bindValue(1, $userId);
     $statement->execute();
+    $sql = ("DELETE FROM ProductRating WHERE user_id = ?");
+    $statement = $conn->prepare($sql);
+    $statement->bindValue(1, $userId);
+    $statement->execute();
+
+    $sql = ("DELETE FROM OrderDetails WHERE user_id = ?");
+    $statement = $conn->prepare($sql);
+    $statement->bindValue(1, $userId);
+    $statement->execute();
+
+    $sql = ("DELETE FROM Cart WHERE user_id = ?");
+    $statement = $conn->prepare($sql);
+    $statement->bindValue(1, $userId);
+    $statement->execute();
+
+
+    $sqlUser = ("DELETE FROM User WHERE id = ?");
+    $statement = $conn->prepare($sql);
+    $statement->bindValue(1, $userId);
+    $statement->execute();
+
     $conn->commit(); 
 
     session_destroy();
