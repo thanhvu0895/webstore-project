@@ -13,7 +13,7 @@ include("connection.php");
 if (isset($_POST["signup"])) {
   if ($_POST["full_name"] == "" or $_POST["pass_word"] == "" or $_POST["email"] == "") {
     $messageEmpty = "<div class='alert alert-warning alert-dismissable'>
-    <a href='signin.php' class='close' data-dismiss='alert' aria-label='close'>&times;</a> 
+    <a href='signup.php' class='close' data-dismiss='alert' aria-label='close'>&times;</a> 
     <strong>Error: </strong> Email, Password or Username cannot be blank. 
   </div>";
   } else {
@@ -26,7 +26,7 @@ if (isset($_POST["signup"])) {
       $stmt = $conn->query("SELECT email FROM User WHERE email = '$email'");
       if ($stmt->rowCount() > 0) {
         $emailExisted = "<div class='alert alert-warning alert-dismissable'>
-                          <a href='signin.php' class='close' data-dismiss='alert' aria-label='close'>&times;</a> 
+                          <a href='signup.php' class='close' data-dismiss='alert' aria-label='close'>&times;</a> 
                           <strong>Error: </strong> Username $email has been taken!
                         </div>";
       } else {
@@ -45,7 +45,7 @@ if (isset($_POST["signup"])) {
 	 $conn->commit();
 	
 	 $userCreated = "<div class='alert alert-warning alert-dismissable'>
-		<a href='signin.php' class='close' data-dismiss='alert' aria-label='close'>&times;</a> 
+		<a href='signup.php' class='close' data-dismiss='alert' aria-label='close'>&times;</a> 
 		New user $email has been created! 
 	 </div>";
     }

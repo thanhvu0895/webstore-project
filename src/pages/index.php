@@ -382,7 +382,7 @@ $conn = null;
           <ol type="A">
             <form method="post" action="" style="border: 2px solid black; background:  white; padding: 15px 30px;">  
             <div class="slider-form">
-              <p>Filter By Price: <br>(Move both ends of slider or input prices)</p>
+              <strong><p>Filter By Price:</strong> <br>(Move both ends of slider or input prices)</p>
               <div class='slider' style="display:flex;justify-content: center">
                 <div id="slider-range" style="width: 300px;"></div>              
               </div>
@@ -397,7 +397,7 @@ $conn = null;
               </div>
             <div class="price-form">
               <br>
-              <p>Filter by Average Rating:</p>
+              <strong><p>Filter by Average Rating:</p></strong>
               <div style="margin-top: 10px">
                 <select class="custom-select" name="stars" id="stars" value>
                   <option value="0" selected disabled hidden>Select A Rating Range</option>

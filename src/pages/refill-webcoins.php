@@ -26,7 +26,7 @@ try {
         $conn->commit();
 
         $messageRefilled =  "<div class='alert alert-warning alert-dismissable'>
-        <a href='signin.php' class='close' data-dismiss='alert' aria-label='close'>&times;</a> 
+        <a href='refill-webcoins.php' class='close' data-dismiss='alert' aria-label='close'>&times;</a> 
         &curren; $refillAmount added successfully 
     </div>";
     }
