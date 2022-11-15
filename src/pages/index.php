@@ -387,19 +387,15 @@ $conn = null;
 ">  
             <div class="slider-form">
               <p>Filter By Price: <br> (Move both ends of slider or input max & min price)</p>
-              <div id="slider-range" style="width: 200px"></div>              
+              <div id="slider-range" style="width: 300px"></div>              
               <div class="filter-container">
                 <div class="filter-amount">
                   <div style="display:flex">                  
-                    <div class="input-group-prepend">                  
                       <span class="input-group-text" id="inputGroup-sizing-sm" style="background-color:white;border:none">Input Min Price: </span>
-                    </div>
                     <input type="number" class="form-control" type="" style="width:80px; margin-right:10px" aria-describedby="inputGroup-sizing-sm" id="min" class="filter-amount" name="min_price" value="<?php echo $min; ?>">
                   </div>                  
                   <div style="display: flex">
-                    <div class="input-group-prepend" style="margin-left:10px">
                       <span class="input-group-text" id="inputGroup-sizing-sm" style="background-color:white;border:none">Input Max Price: </span>
-                    </div>
                     <input type="number" class="form-control" type="" style="width:80px" aria-describedby="inputGroup-sizing-sm" id="max" name="max_price" value="<?php echo $max; ?>">
                   </div>
                 </div>
