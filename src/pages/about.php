@@ -28,6 +28,9 @@ require_once("connection.php");
             <div style="height:120px; display:flex; justify-content:center; align-items:center">
               <h2>Duure</h2>
             </div>
+            <div class="pfp">
+                <img src="../images/Duure.png" alt="Duure" style="width:210px;height:auto;">
+              </div> <br>
             <p class="title">Front-End Lead & Back-End Dev</p>
             <p>Year: Senior</p>
             <p>Major: CS & Econ</p>
@@ -39,8 +42,11 @@ require_once("connection.php");
         <div class="card">
           <div class="container">
             <div style="height:120px; display:flex; justify-content:center; align-items:center">
-              <h2>Thanh N. Vu</h2>
+              <h2>Thanh</h2>
             </div>
+            <div class="pfp">
+                <img src="../images/Thanh.png" alt="Thanh" style="width:210px;height:auto;">
+              </div> <br>
             <p class="title">Back-End and Database Lead</p>
             <p>Year: Senior</p>
             <p>Major: CS</p>
@@ -54,6 +60,9 @@ require_once("connection.php");
             <div style="height:120px; display:flex; justify-content:center; align-items:center">
               <h2>William</h2>
             </div>
+            <div class="pfp">
+                <img src="../images/William.png" alt="William" style="width:210px;height:auto;">
+              </div> <br>
             <p class="title">Back-End Dev</p>
             <p>Year: Senior</p>
             <p>Major: CS</p>
@@ -67,6 +76,9 @@ require_once("connection.php");
             <div style="height:120px; display:flex; justify-content:center; align-items:center">
               <h2>Caroline</h2>
             </div>
+            <div class="pfp">
+                <img src="../images/Caroline.jpg" alt="Caroline" style="width:210px;height:auto;">
+              </div> <br>
             <p class="title">Front-End Dev</p>
             <p>Year: Senior</p>
             <p>Major: CS</p>
@@ -80,6 +92,9 @@ require_once("connection.php");
             <div style="height:120px; display:flex; justify-content:center; align-items:center">
               <h2>Sophie</h2>
             </div>
+            <div class="pfp">
+                <img src="../images/Sophie.png" alt="Sophie" style="width:210px;height:auto;">
+              </div> <br>
             <p class="title">UI/UX Lead</p>
             <p>Year: Sophomore</p>
             <p>Major: CS</p>

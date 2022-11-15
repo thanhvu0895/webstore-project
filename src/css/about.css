@@ -41,6 +41,16 @@ html {
 .container {
   padding: 0 16px;
   min-height: 300px;
+  margin:auto;
+  width: 80%;
+}
+
+.pfp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left:auto;
+  margin-right:auto;
 }
 
 .container::after,
@@ -72,6 +82,11 @@ html {
 
 @media screen and (max-width: 650px) {
   .column {
+    width: 100%;
+    display: block;
+  }
+
+  .container {
     width: 100%;
     display: block;
   }
