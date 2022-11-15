@@ -380,50 +380,38 @@ $conn = null;
         <details>
             <summary>Click Here To Filter Products</summary>
           <ol type="A">
-            <form method="post" action="" style="
-    border: 2px solid black;
-    background:  white;
-    padding: 15px 30px;
-">  
+            <form method="post" action="" style="border: 2px solid black; background:  white; padding: 15px 30px;">  
             <div class="slider-form">
-              <p>Filter By Price: <br> (Move both ends of slider or input max & min price)</p>
-              <div id="slider-range" style="width: 300px"></div>              
-              <div class="filter-container">
-                <div class="filter-amount">
-                  <div style="display:flex">                  
-                      <span class="input-group-text" id="inputGroup-sizing-sm" style="background-color:white;border:none">Input Min Price: </span>
-                    <input type="number" class="form-control" type="" style="width:80px; margin-right:10px" aria-describedby="inputGroup-sizing-sm" id="min" class="filter-amount" name="min_price" value="<?php echo $min; ?>">
-                  </div>                  
-                  <div style="display: flex">
-                      <span class="input-group-text" id="inputGroup-sizing-sm" style="background-color:white;border:none">Input Max Price: </span>
-                    <input type="number" class="form-control" type="" style="width:80px" aria-describedby="inputGroup-sizing-sm" id="max" name="max_price" value="<?php echo $max; ?>">
-                  </div>
-                </div>
+              <p>Filter By Price: <br>(Move both ends of slider or input prices)</p>
+              <div class='slider' style="display:flex;justify-content: center">
+                <div id="slider-range" style="width: 300px;"></div>              
               </div>
-            </div>
+              <div class='slider-min' style="display:flex; padding-top: 10px">
+                <span class="input-group-text" id="inputGroup-sizing-sm" style="background-color:white;border:none">Input Min Price: </span>
+                <input type="number" class="form-control" type="" style="width:80px; margin-right:10px" aria-describedby="inputGroup-sizing-sm" id="min" class="filter-amount" name="min_price" value="<?php echo $min; ?>">
+              </div>
+              <br>
+              <div class='slider-max' style="display: flex">
+                <span class="input-group-text" id="inputGroup-sizing-sm" style="background-color:white;border:none">Input Max Price: </span>
+                <input type="number" class="form-control" type="" style="width:80px" aria-describedby="inputGroup-sizing-sm" id="max" name="max_price" value="<?php echo $max; ?>">
+              </div>
             <div class="price-form">
               <br>
               <p>Filter by Average Rating:</p>
               <div style="margin-top: 10px">
-                  <select class="custom-select" name="stars" id="stars" value>
-                    <option value="0" selected disabled hidden>Select A Rating Range</option>
-                    <option value=4>4 Stars & Up</option>
-                    <option value=3>3 Stars & Up</option>
-                    <option value=2>2 Stars & Up</option>
-                    <option value=1>1 Star & Up</option>
-                    <option value=0>No Rating & Up</option>
-                  </select><br>
-                  <br>
-                  <button type="submit" class="btn btn-secondary btn-sm" style="background-color: #212529; /* Green */
-  border: none;
-  color: white;
-  padding: 5px 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;">Submit</button>
-                </div>
+                <select class="custom-select" name="stars" id="stars" value>
+                  <option value="0" selected disabled hidden>Select A Rating Range</option>
+                  <option value=4>4 Stars & Up</option>
+                  <option value=3>3 Stars & Up</option>
+                  <option value=2>2 Stars & Up</option>
+                  <option value=1>1 Star & Up</option>
+                  <option value=0>No Rating & Up</option>
+                </select><br>
+              <br>
+              <button type="submit" class="btn btn-secondary btn-sm" style="background-color: #212529; /* Black */ border: none; color: white; padding: 5px 10px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px;">Submit</button>
               </div>
+              </div>
+            </div>
             </form>
           </ol>
         </details>
