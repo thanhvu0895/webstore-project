@@ -387,7 +387,7 @@ $conn = null;
 ">  
             <div class="slider-form">
               <p>Filter By Price: <br> (Move both ends of slider or input max & min price)</p>
-              <div id="slider-range" style="width: 500px"></div>              
+              <div id="slider-range" style="width: 200px"></div>              
               <div class="filter-container">
                 <div class="filter-amount">
                   <div style="display:flex">                  
