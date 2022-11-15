@@ -382,7 +382,7 @@ $conn = null;
           <ol type="A">
             <form method="post" action="" style="border: 2px solid black; background:  white; padding: 15px 30px;">  
             <div class="slider-form">
-              <strong><p>Filter By Price:</strong> <br>(Move both ends of slider or input prices)</p>
+              <strong><p>Filter By Price:</strong> <br>(Tapping both ends of slider or input prices)</p>
               <div class='slider' style="display:flex;justify-content: center">
                 <div id="slider-range" style="width: 300px;"></div>              
               </div>
