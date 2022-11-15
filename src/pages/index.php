@@ -378,47 +378,60 @@ $conn = null;
     <div class="catalog">
       <div style="padding-top: 10px;display: flex;justify-content: center;">
         <details>
-          <summary>Filter the product</summary>
+            <summary>Click Here To Filter Products</summary>
           <ol type="A">
-            <form method="post" action="">
+            <form method="post" action="" style="
+    border: 2px solid black;
+    background:  white;
+    padding: 15px 30px;
+">  
+            <div class="slider-form">
+              <p>Filter By Price: <br> (Move both ends of slider or input max & min price)</p>
+              <div id="slider-range" style="width: 500px"></div>              
               <div class="filter-container">
                 <div class="filter-amount">
-                  <div style="display:flex">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text" id="inputGroup-sizing-sm">Min</span>
+                  <div style="display:flex">                  
+                    <div class="input-group-prepend">                  
+                      <span class="input-group-text" id="inputGroup-sizing-sm" style="background-color:white;border:none">Input Min Price: </span>
                     </div>
                     <input type="number" class="form-control" type="" style="width:80px; margin-right:10px" aria-describedby="inputGroup-sizing-sm" id="min" class="filter-amount" name="min_price" value="<?php echo $min; ?>">
-                  </div>
-                  <div id="slider-range" style="width: 120px"></div>
+                  </div>                  
                   <div style="display: flex">
                     <div class="input-group-prepend" style="margin-left:10px">
-                      <span class="input-group-text" id="inputGroup-sizing-sm">Max</span>
+                      <span class="input-group-text" id="inputGroup-sizing-sm" style="background-color:white;border:none">Input Max Price: </span>
                     </div>
                     <input type="number" class="form-control" type="" style="width:80px" aria-describedby="inputGroup-sizing-sm" id="max" name="max_price" value="<?php echo $max; ?>">
                   </div>
                 </div>
-                <div style="margin-top: 10px">
+              </div>
+            </div>
+            <div class="price-form">
+              <br>
+              <p>Filter by Average Rating:</p>
+              <div style="margin-top: 10px">
                   <select class="custom-select" name="stars" id="stars" value>
-                    <option value="0" selected disabled hidden>Select Rating</option>
+                    <option value="0" selected disabled hidden>Select A Rating Range</option>
                     <option value=4>4 Stars & Up</option>
                     <option value=3>3 Stars & Up</option>
                     <option value=2>2 Stars & Up</option>
                     <option value=1>1 Star & Up</option>
-                    <option value=0>Include No Rating</option>
-                  </select>
-                  <button type="submit" class="btn btn-secondary btn-sm">Filter</button>
+                    <option value=0>No Rating & Up</option>
+                  </select><br>
+                  <br>
+                  <button type="submit" class="btn btn-secondary btn-sm" style="background-color: #212529; /* Green */
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;">Submit</button>
                 </div>
               </div>
-
             </form>
           </ol>
         </details>
       </div>
-      <!-- slider begins -->
-      <div>
-      </div>
-      <!-- slider ends -->
-
       <div class="container px-4 px-lg-5 pt-5">
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 row-cols-xxl-6">
           <?php
@@ -428,17 +441,6 @@ $conn = null;
               $productsInWishList = (!empty($productFavoriteIds[$i])) 
                                 ? "<input type='image' src='../images/HeartIcon-Red.png' alt='heart-icon' height='12' width='12'>" 
                                 : "<input type='image' src='../images/HeartIcon.png' alt='heart-icon' height='12' width='12'>";
-              // $productsInWishList = (!empty($productFavoriteIds[$i])) 
-              //                   ? "<form action='' method='post'>
-              //                        <!-- Hidden input -->
-              //                        <input type='hidden' name='id' value='$productIds[$i]'>
-              //                        <input type='image' src='../images/HeartIcon-Red.png' alt='heart-icon' height='12' width='12' $displayNone>
-              //                      </form>" 
-              //                   : "<form action='' method='post'>
-              //                         <!-- Hidden input -->
-              //                         <input type='hidden' name='id' value='$productIds[$i]'>
-              //                         <input type='image' src='../images/HeartIcon.png' alt='heart-icon' height='12' width='12' $displayNone>
-              //                      </form>";
               if (!$isSignedIn) {
                 $productsInWishList = '';
               }
