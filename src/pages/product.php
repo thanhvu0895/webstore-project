@@ -664,14 +664,18 @@
                         echo "
                         <div class='col mb-5'>
                             <div class='catalog-item'>
-                                <img src='$productImagePaths[$i]' alt='Item' width='130' height='130' />
+                            <div class='catalog-item-image'>
+                                <img src='$productImagePaths[$i]' alt='Item' width='100%' width='130' height='130' class='contain'/>
+                            </div>
                                 <div class='catalog-item-description'>	
                                     <div class='catalog-item-description-name'>	
                                         <a href='product.php?id=$productIds[$i]'><p>$productNames[$i]</p></a>
                                     </div>
+
                                     <div class='catalog-item-description-brand'>	
                                         <p>$productBrands[$i]</p>
                                     </div>
+                                    
                                     <div class='catalog-item-description-star'>	
                                         <span>	
                                         $ratingDisplays[$i]	
