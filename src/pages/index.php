@@ -11,10 +11,10 @@ $isSignedIn = isset($_SESSION["email"]);
 $userId = $_SESSION["userid"] ?? '';
 
 try {
- 
-  $sql = ($isSignedIn) 
-                        ? "SELECT * FROM Product LEFT JOIN ProductFavorite ON ProductFavorite.product_id = Product.id AND user_id = $userId" 
-                        : "SELECT * FROM Product"; 
+
+  $sql = ($isSignedIn)
+    ? "SELECT * FROM Product LEFT JOIN ProductFavorite ON ProductFavorite.product_id = Product.id AND user_id = $userId"
+    : "SELECT * FROM Product";
   $stmt = $conn->query($sql);
 
   // Get id product name, brand, price, image_path from product Id 
@@ -24,11 +24,10 @@ try {
     $productPrices[] = $row['price'];
     $productBrands[] = $row['brand'];
     $productImagePaths[] = $row['image_path'];
-    if ($isSignedIn){
+    if ($isSignedIn) {
       $productFavoriteIds[] = $row['product_id'];
     }
   }
-
 } catch (PDOException $e) {
   header("Location: error.php?error=Connection failed:" . $e->getMessage());
 }
@@ -41,9 +40,9 @@ try {
   if (!empty($_GET['category'])) {
     $category = $_GET['category'] ?? '';
 
-    $sql = ($isSignedIn) 
-                        ? "SELECT * FROM (SELECT * FROM Product where category='$category') AS PC LEFT JOIN ProductFavorite on ProductFavorite.product_id = PC.id and user_id = $userId" 
-                        : "SELECT * FROM Product where category='$category'"; 
+    $sql = ($isSignedIn)
+      ? "SELECT * FROM (SELECT * FROM Product where category='$category') AS PC LEFT JOIN ProductFavorite on ProductFavorite.product_id = PC.id and user_id = $userId"
+      : "SELECT * FROM Product where category='$category'";
     $stmt = $conn->query($sql);
 
     // Get id product name, brand, price, image_path from product Id 
@@ -63,7 +62,6 @@ try {
       if ($isSignedIn) {
         $productFavoriteIds[] = $row['product_id'];
       }
-      
     }
   }
 } catch (PDOException $e) {
@@ -136,7 +134,7 @@ try {
       $productPrices[] = $row['price'];
       $productBrands[] = $row['brand'];
       $productImagePaths[] = $row['image_path'];
-      if($isSignedIn) {
+      if ($isSignedIn) {
         $productFavoriteIds[] = $row['product_id'];
       }
     }
@@ -149,14 +147,14 @@ try {
 /**
  *  IMPLEMENT SEARCH BAR
  */
- 
+
 $search = "";
 try {
   if (!empty($_POST['search'])) {
     $search = $_POST['search'];
-    $sql = ($isSignedIn) 
-                        ? "SELECT * FROM (SELECT * FROM Product where name like '%$search%') AS PC LEFT JOIN ProductFavorite on ProductFavorite.product_id = PC.id and user_id = $userId" 
-                        : "SELECT * FROM Product where name like '%$search%'"; 
+    $sql = ($isSignedIn)
+      ? "SELECT * FROM (SELECT * FROM Product where name like '%$search%') AS PC LEFT JOIN ProductFavorite on ProductFavorite.product_id = PC.id and user_id = $userId"
+      : "SELECT * FROM Product where name like '%$search%'";
     $stmt = $conn->query($sql);
     // Get id product name, brand, price, image_path from product Id 
     unset($productNames);
@@ -171,8 +169,8 @@ try {
       $productPrices[] = $row['price'];
       $productBrands[] = $row['brand'];
       $productImagePaths[] = $row['image_path'];
-      
-      if($isSignedIn) {
+
+      if ($isSignedIn) {
         $productFavoriteIds[] = $row['product_id'];
       }
     }
@@ -378,40 +376,43 @@ $conn = null;
     <div class="catalog">
       <div style="padding-top: 10px;display: flex;justify-content: center;">
         <details>
-            <summary>Click Here To Filter Products</summary>
+          <summary>Click Here To Filter Products</summary>
           <ol type="A">
-            <form method="post" action="" style="border: 2px solid black; background:  white; padding: 15px 30px;">  
-            <div class="slider-form">
-              <strong><p>Filter By Price:</strong> <br>(Tapping both ends of slider or input prices)</p>
-              <div class='slider' style="display:flex;justify-content: center">
-                <div id="slider-range" style="width: 300px;"></div>              
+            <form method="post" action="" style="border: 2px solid black; background:  white; padding: 10px 20px;">
+              <div class="slider-form">
+                <strong>
+                  <p>Filter By Price:
+                <div class='slider' style="display:flex;justify-content: center">
+                  <div id="slider-range" style="width: 300px;"></div>
+                </div>
+                <div class='slider-min' style="display:flex; padding-top: 10px">
+                  <span class="input-group-text" id="inputGroup-sizing-sm" style="background-color:white;border:none">Input Min Price: </span>
+                  <input type="number" class="form-control" type="" style="width:80px; margin-right:10px" aria-describedby="inputGroup-sizing-sm" id="min" class="filter-amount" name="min_price" value="<?php echo $min; ?>">
+                </div>
+                <br>
+                <div class='slider-max' style="display: flex">
+                  <span class="input-group-text" id="inputGroup-sizing-sm" style="background-color:white;border:none">Input Max Price: </span>
+                  <input type="number" class="form-control" type="" style="width:80px" aria-describedby="inputGroup-sizing-sm" id="max" name="max_price" value="<?php echo $max; ?>">
+                </div>
+                <div class="price-form">
+                  <br>
+                  <strong>
+                    <p>Filter by Average Rating:</p>
+                  </strong>
+                  <div style="margin-top: 10px">
+                    <select class="custom-select" name="stars" id="stars" value>
+                      <option value="0" selected disabled hidden>Select A Rating Range</option>
+                      <option value=4>4 Stars & Up</option>
+                      <option value=3>3 Stars & Up</option>
+                      <option value=2>2 Stars & Up</option>
+                      <option value=1>1 Star & Up</option>
+                      <option value=0>No Rating & Up</option>
+                    </select><br>
+                    <br>
+                    <button type="submit" class="btn btn-secondary btn-sm" style="background-color: #212529; /* Black */ border: none; color: white; padding: 5px 10px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px;">Submit</button>
+                  </div>
+                </div>
               </div>
-              <div class='slider-min' style="display:flex; padding-top: 10px">
-                <span class="input-group-text" id="inputGroup-sizing-sm" style="background-color:white;border:none">Input Min Price: </span>
-                <input type="number" class="form-control" type="" style="width:80px; margin-right:10px" aria-describedby="inputGroup-sizing-sm" id="min" class="filter-amount" name="min_price" value="<?php echo $min; ?>">
-              </div>
-              <br>
-              <div class='slider-max' style="display: flex">
-                <span class="input-group-text" id="inputGroup-sizing-sm" style="background-color:white;border:none">Input Max Price: </span>
-                <input type="number" class="form-control" type="" style="width:80px" aria-describedby="inputGroup-sizing-sm" id="max" name="max_price" value="<?php echo $max; ?>">
-              </div>
-            <div class="price-form">
-              <br>
-              <strong><p>Filter by Average Rating:</p></strong>
-              <div style="margin-top: 10px">
-                <select class="custom-select" name="stars" id="stars" value>
-                  <option value="0" selected disabled hidden>Select A Rating Range</option>
-                  <option value=4>4 Stars & Up</option>
-                  <option value=3>3 Stars & Up</option>
-                  <option value=2>2 Stars & Up</option>
-                  <option value=1>1 Star & Up</option>
-                  <option value=0>No Rating & Up</option>
-                </select><br>
-              <br>
-              <button type="submit" class="btn btn-secondary btn-sm" style="background-color: #212529; /* Black */ border: none; color: white; padding: 5px 10px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px;">Submit</button>
-              </div>
-              </div>
-            </div>
             </form>
           </ol>
         </details>
@@ -422,9 +423,9 @@ $conn = null;
           if (!empty($productNames)) {
             for ($i = 0; $i < count($productNames); $i++) {
               $productRateMess = ($voteCounts[$i] > 1) ? $voteCounts[$i] . ' rates' :  $voteCounts[$i] . ' rate';
-              $productsInWishList = (!empty($productFavoriteIds[$i])) 
-                                ? "<input type='image' src='../images/HeartIcon-Red.png' alt='heart-icon' height='12' width='12'>" 
-                                : "<input type='image' src='../images/HeartIcon.png' alt='heart-icon' height='12' width='12'>";
+              $productsInWishList = (!empty($productFavoriteIds[$i]))
+                ? "<input type='image' src='../images/HeartIcon-Red.png' alt='heart-icon' height='12' width='12'>"
+                : "<input type='image' src='../images/HeartIcon.png' alt='heart-icon' height='12' width='12'>";
               if (!$isSignedIn) {
                 $productsInWishList = '';
               }

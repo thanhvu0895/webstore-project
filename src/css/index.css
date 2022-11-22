@@ -105,4 +105,8 @@ p {
   .filter-container {
     flex-direction: column;
   }
+  
+  .slider {
+    display: none !important;
+  }
 }
