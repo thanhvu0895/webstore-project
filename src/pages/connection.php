@@ -1,10 +1,10 @@
 <?php
 
-$dbserver = "178.128.154.4";
+$dbserver = "24.199.95.130";
 $dbuser = "root";
 $dbpass = "1234";
 $dbname = "db_webstore";
-$port = "3305";
+$port = "3306";
 
 try {
   $conn = new PDO("mysql:host=$dbserver;port=$port;dbname=$dbname", $dbuser, $dbpass);

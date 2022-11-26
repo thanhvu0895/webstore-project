@@ -129,9 +129,10 @@ try {
     $statement->execute();
 
     $conn->commit();
-
+   
     session_destroy();
     header("Location: signin.php");
+
   }
 } catch (PDOException $e) {
   header("Location: error.php?error=Connection failed:" . $e->getMessage());
