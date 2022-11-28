@@ -2,7 +2,7 @@
 
 $dbserver = "24.199.95.130";
 $dbuser = "root";
-$dbpass = "1234";
+$dbpass = "Tvu31895!";
 $dbname = "db_webstore";
 $port = "3306";
 
