@@ -44,20 +44,14 @@ Ecommerce Benchmark:
 
 # Ui/Ux Designs:
 
-Landing:
 ![image](https://user-images.githubusercontent.com/75138396/221350718-4bd0c5ed-49c9-4d83-a8be-a82b44373e71.png)
 
-Sign-In/Sign-up:
 ![image](https://user-images.githubusercontent.com/75138396/221350740-87450700-364b-4f29-ad71-14f335f8b183.png)
 
-Product Details:
 ![image](https://user-images.githubusercontent.com/75138396/221350750-8b293571-ec7b-4c7e-8089-4c57c0a5a224.png)
 
-Home:
 ![image](https://user-images.githubusercontent.com/75138396/221350799-b1facff2-6deb-495a-bb7b-8aeaf9dcdf93.png)
 
-
-User's Cart:
 ![image](https://user-images.githubusercontent.com/75138396/221350816-134faf7d-a4b7-4f47-b9ce-10a18dd21907.png)
 
 # Backend:
