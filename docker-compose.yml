@@ -10,9 +10,11 @@ services:
         - MYSQL_DATABASE=$DB_DATABASE
     ports:
       - 3306:$DB_PORT
-      # Where our data will be persisted
     volumes:
       - mysql_db:/var/lib/mysql
+      - ./db_webstore.sql:/docker-entrypoint-initdb.d/db_webstore.sql
+      - ./import_sql.sh:/docker-entrypoint-initdb.d/import_sql.sh
+    command: ["bash", "/docker-entrypoint-initdb.d/import_sql.sh"]
 # Names our volume
 volumes:
   mysql_db:
