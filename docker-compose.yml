@@ -10,9 +10,15 @@ services:
         - MYSQL_DATABASE=$DB_DATABASE
     ports:
       - 3306:$DB_PORT
-      # Where our data will be persisted
     volumes:
       - mysql_db:/var/lib/mysql
+      - ./db_webstore.sql:/docker-entrypoint-initdb.d/db_webstore.sql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-uroot", "-p$$DB_PASSWORD"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    command: ["/bin/bash", "-c", "sleep 10 && mysql -uroot -p$$DB_PASSWORD $$DB_DATABASE < /docker-entrypoint-initdb.d/db_webstore.sql"]
 # Names our volume
 volumes:
   mysql_db:
